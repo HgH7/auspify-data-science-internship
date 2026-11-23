@@ -15,12 +15,12 @@ Install Python, Jupyter, pandas and numpy. Download the original `Dataset.csv` f
 
 Original dataset and task guidelines: https://drive.google.com/drive/folders/138FPxRQ_heq3HPYOpLuvpnStAPwMMt8W
 
-The supplied clean output has 8,787 rows and 20 columns. Its upload is not yet complete. The original notebook is preserved without code changes.
+The supplied clean output has 8,787 rows and 20 columns. It is uploaded at the repository root as `netflix_clean.csv`. The original notebook is preserved without code changes.
 
 ## Submission checklist
 
 - [x] Task 1 notebook
-- [ ] Cleaned CSV uploaded
+- [x] Cleaned CSV uploaded
 - [ ] EDA notebook and charts
 - [ ] Recommendations notebook and quality checks
 - [ ] Forecasting notebook, charts and interpretation
