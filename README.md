@@ -1,41 +1,39 @@
-# Auspify Data Science Internship - Final Submission
+# Netflix Catalog Analysis
 
-**Intern:** Hassan Elsayed
-**Program:** Auspify Technologies Data Science Internship
-**Dataset:** "Netflix Movies and TV Shows" by Shivam Bansal, Kaggle (https://www.kaggle.com/datasets/shivamb/netflix-shows), a snapshot of titles listed on Netflix as of September 2021.
+A four-part data project on Netflix's catalog: clean the raw data, explore it, build a content-based recommender, and forecast titles per release year.
 
-This package contains the 4 completed tasks (of the 6 assigned), the cleaned dataset produced in Task 1 and reused by the other tasks, all charts, and written reports.
+**Author:** Hassan Elsayed
+**Dataset:** "Netflix Movies and TV Shows" by Shivam Bansal, Kaggle (https://www.kaggle.com/datasets/shivamb/netflix-shows), a snapshot of titles listed on Netflix as of September 2021. The copy used here has 8,790 rows and 10 columns and is expected to be saved as `Dataset.csv`.
+
+## What it does
+
+1. **Data cleaning**: removes duplicates, converts placeholder missing values, fixes date, duration, genre and rating columns. Output: `netflix_clean.csv` (8,787 rows, 20 columns).
+2. **Exploratory analysis**: content mix, countries, ratings, growth over time, durations, with 7 charts.
+3. **Recommendations**: TF-IDF and cosine similarity over genres, director, country, rating and year. Returns the 10 most similar titles for any title; 84.3% of top-10 results share the query title's primary genre, against 9.3% for random picks.
+4. **Forecasting**: compares five simple models on a 2017-2020 holdout and forecasts 2021-2025 titles per release year.
 
 ## Contents
 
 | Path | What it is |
 |---|---|
-| `netflix_clean.csv` | Cleaned dataset produced in Task 1 (8,787 rows, 20 columns). Used by Tasks 2-4. |
-| `Task1_Data_Cleaning/` | Data cleaning and preprocessing notebook, with saved outputs, plus a short report. |
-| `Task2_EDA/` | Exploratory data analysis notebook, 7 charts in `charts/`, plus a short report. |
-| `Task3_Recommendations/` | Content-based recommendation notebook, 4 charts in `charts/`, plus a short report. |
-| `Task4_Forecasting/` | Release-year trend and forecasting notebook, 5 charts in `charts/`, plus a short report. |
-| `Report/` | One written report covering all four tasks (Markdown source and PDF). |
+| `netflix_clean.csv` | Cleaned dataset produced in part 1, used by parts 2-4. |
+| `01_Data_Cleaning/` | Cleaning notebook with saved outputs, short report, screenshots. |
+| `02_EDA/` | EDA notebook, 7 charts in `charts/`, short report, screenshots. |
+| `03_Recommendations/` | Recommender notebook, 4 charts in `charts/`, short report, screenshots. |
+| `04_Forecasting/` | Forecasting notebook, 5 charts in `charts/`, short report, screenshots. |
+| `Report/` | Full written report (Markdown and PDF). |
 
-Every notebook was run end to end with no errors, and the outputs and charts shown are the ones saved in the notebooks.
+## How to run
 
-## How to run each notebook
+Requirements: Python 3 with Jupyter, pandas, numpy, matplotlib and seaborn (part 3 also needs scikit-learn).
 
-Requirements: Python 3 with Jupyter, pandas, numpy, matplotlib and seaborn.
-
-1. **Task 1** - place the original `Dataset.csv` (from the internship's shared dataset folder) beside `Task1_Data_Cleaning/Task1_Data_Cleaning.ipynb` and run all cells. It writes `netflix_clean.csv`.
-2. **Task 2** - run `Task2_EDA/Task2_EDA.ipynb`. It reads `netflix_clean.csv` from its own folder or the parent folder (the top level of this package), and saves charts to `charts/`.
-3. **Task 3** - run `Task3_Recommendations/Task3_Recommendations.ipynb` (also needs scikit-learn). Same data location rule as Task 2.
-4. **Task 4** - run `Task4_Forecasting/Task4_Forecasting.ipynb`. Same data location rule as Task 2. Uses numpy/pandas/matplotlib only.
+1. Part 1: put `Dataset.csv` beside `01_Data_Cleaning/01_Data_Cleaning.ipynb` and run all cells. It writes `netflix_clean.csv`.
+2. Part 2: run `02_EDA/02_EDA.ipynb`. It reads `netflix_clean.csv` from its own folder or the repo root and saves charts to `charts/`.
+3. Part 3: run `03_Recommendations/03_Recommendations.ipynb`. Same data location rule.
+4. Part 4: run `04_Forecasting/04_Forecasting.ipynb`. Same data location rule. Uses numpy, pandas and matplotlib only.
 
 ## Data notes
 
-- The cleaned data covers titles added to Netflix up to 25 September 2021, so 2021 is a partial year.
+- The data covers titles added to Netflix up to 25 September 2021, so 2021 is a partial year.
 - Each title keeps a single country label; co-productions are under-counted and 287 titles are "Unknown".
-- 14 titles have a negative release-to-addition lag (flagged in Task 2, left unchanged).
-
-Source code is also published at https://github.com/HgH7/auspify-data-science-internship
-
-## Screenshots
-
-Each task folder has a `screenshots/` folder with images of the executed notebook (code cells and their outputs, page by page). `charts/` holds the exported chart images.
+- 14 titles have a negative release-to-addition lag (flagged in part 2, left unchanged).
